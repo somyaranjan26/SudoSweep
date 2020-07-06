@@ -1,0 +1,1 @@
+### SudoSweep is an web module, helps doctors to classify lungs diseases using X-rays images
