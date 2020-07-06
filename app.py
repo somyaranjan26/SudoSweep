@@ -53,7 +53,7 @@ def uploaded_chest():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload_chest.jpg'))
 
    # resnet_chest = load_model('')
-   vgg_chest = load_model('models/vgg_100_chest.h5')
+   vgg_chest = load_model('models/VGG19_CovidAndPneumonia.h5')
 
    image = cv2.imread('./flask app/assets/images/upload_chest.jpg') # read file 
    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # arrange format as per keras
