@@ -11,13 +11,13 @@ import numpy as np
 CURRENT_DIRECTORY    = os.path.dirname( os.path.dirname( os.path.realpath( __file__ ) ) )
 CURRENT_PACKAGE_NAME = os.path.basename( CURRENT_DIRECTORY ).rsplit('.', 1)[0]
 
-UPLOAD_FOLDER = './flask app/assets/images'
+UPLOAD_FOLDER = './flaskapp/assets/images'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 # Create Database if it doesnt exist
 
 app = Flask(__name__,static_url_path='/assets',
-            static_folder='./flask app/assets', 
-            template_folder='./flask app')
+            static_folder='./flaskapp/assets', 
+            template_folder='./flaskapp')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
@@ -62,7 +62,7 @@ def uploaded_chest():
    # resnet_chest = load_model('')
    vgg_chest = load_model('models/VGG19_CovidAndPneumonia.h5')
 
-   image = cv2.imread('./flask app/assets/images/upload_chest.jpg') # read file 
+   image = cv2.imread('./flaskapp/assets/images/upload_chest.jpg') # read file 
    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # arrange format as per keras
    image = cv2.resize(image,(224,224))
    image = np.array(image) / 255
@@ -112,7 +112,7 @@ def uploaded_covid():
    # resnet_chest = load_model('')
    vgg_chest = load_model('models/vgg_covid100.h5')
 
-   image = cv2.imread('./flask app/assets/images/upload_chest.jpg') # read file 
+   image = cv2.imread('./flaskapp/assets/images/upload_chest.jpg') # read file 
    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # arrange format as per keras
    image = cv2.resize(image,(224,224))
    image = np.array(image) / 255
@@ -162,7 +162,7 @@ def uploaded_pneumonia():
    # resnet_chest = load_model('')
    vgg_chest = load_model('models/keras_model.h5')
 
-   image = cv2.imread('./flask app/assets/images/upload_chest.jpg') # read file 
+   image = cv2.imread('./flaskapp/assets/images/upload_chest.jpg') # read file 
    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # arrange format as per keras
    image = cv2.resize(image,(224,224))
    image = np.array(image) / 255
