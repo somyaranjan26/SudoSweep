@@ -160,7 +160,7 @@ def uploaded_pneumonia():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'upload_chest.jpg'))
 
    # resnet_chest = load_model('')
-   vgg_chest = load_model('models/keras_model.h5')
+   vgg_chest = load_model('models/vgg_pneumonia.h5')
 
    image = cv2.imread('./flaskapp/assets/images/upload_chest.jpg') # read file 
    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # arrange format as per keras
@@ -190,7 +190,6 @@ def uploaded_pneumonia():
    print(vgg_chest_pred)
 
    return render_template('results_covid.html',vgg_chest_pred=vgg_chest_pred, colour=colour, status=status, message=message, result=result)
-
 
 if __name__ == '__main__':
    app.secret_key = ".."
